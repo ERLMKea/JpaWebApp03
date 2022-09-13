@@ -22,6 +22,16 @@ public class StudentRestController {
         return lst;
     }
 
+    @GetMapping("/")
+    public List<Student> studentsroot() {
+        List<Student> lst = studentRepository.findAll();
+        Student std = new Student();
+        std.setName("size=" + lst.size());
+        lst.clear();
+        lst.add(std);
+        return lst;
+    }
+
     @GetMapping("/addstudent")
     public List<Student> addstudent() {
         Student std = new Student();
